@@ -1,5 +1,5 @@
-build
-public
-node_module
+build/
+public/
+node_modules/
 package-lock.json
 yarn.lock

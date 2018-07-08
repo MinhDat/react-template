@@ -5,8 +5,9 @@ import rootSaga from "./redux/sagas";
 import configureStore from "./redux/configureStore";
 import AppWrapper from "./containers/AppWrapper";
 import routes from "./routes";
-
 import "./App.scss";
+
+// Add extend css file
 import "bootstrap/dist/css/bootstrap.css";
 
 // Create redux store with history

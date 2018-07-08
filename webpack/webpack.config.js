@@ -28,8 +28,8 @@ const config = {
   },
   output: {
     path: isProd ? PROD_DIR : DEV_DIR,
-    filename: "js/[name].bundle.js",
-    chunkFilename: "[name].bundle.js"
+    filename: "js/[name].[sha1:hash:hex:9].js"
+    // chunkFilename: "js/[name].[hash:9].js"
   },
   resolve: {
     extensions: ["*", ".js", ".jsx"]
@@ -56,7 +56,7 @@ const config = {
         loader: "url-loader",
         options: {
           limit: 1000,
-          name: "images/[name].[hash:9].[ext]"
+          name: "images/[name].[sha1:hash:hex:9].[ext]"
           // outputPath: "assets"
         }
       },
@@ -65,7 +65,7 @@ const config = {
         loader: "url-loader",
         options: {
           limit: 1000,
-          name: "fonts/[name].[hash:9].[ext]"
+          name: "fonts/[name].[sha1:hash:hex:9].[ext]"
           // outputPath: "assets"
         }
       }
@@ -83,7 +83,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin(optionConfig.htmlWebpackPluginOption),
     new ExtractTextPlugin({
-      filename: "css/[name].bundle.css",
+      filename: "css/[name].[sha1:hash:hex:9].css",
       disable: false,
       allChunks: true
     }),

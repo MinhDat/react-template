@@ -4,7 +4,8 @@ const { APP_DIR } = require("./webpack.config.base");
 
 module.exports = {
   htmlWebpackPluginOption: {
-    title: "Wefit",
+    inject: false,
+    title: "React Template",
     minify: {
       collapseWhitespace: true //Minify
     },

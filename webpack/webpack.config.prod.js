@@ -1,10 +1,9 @@
 // WEBPACK CONFIGURATION PRODUCTION
 
-const { APP_DIR } = require("./webpack.config.base");
+const { APP_DIR, SOURCE_DIR } = require("./webpack.config.base");
 
 module.exports = {
   htmlWebpackPluginOption: {
-    inject: false,
     title: "React Template",
     minify: {
       collapseWhitespace: true //Minify
@@ -34,6 +33,12 @@ module.exports = {
           modules: true,
           importLoaders: 1,
           localIdentName: "[sha1:hash:hex:9]" // Hash sass classname
+        }
+      },
+      {
+        loader: "sass-loader",
+        options: {
+          path: SOURCE_DIR + "/config/postcss.config.js"
         }
       }
     ]

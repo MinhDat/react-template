@@ -8,7 +8,7 @@ import routes from "./routes";
 import "./App.scss";
 
 // Add extend css file
-import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/css/bootstrap.css";
 
 // Create redux store with history
 const initialState = {};

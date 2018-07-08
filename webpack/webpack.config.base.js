@@ -8,7 +8,7 @@ const DEV_DIR = SOURCE_DIR + "/build";
 const PROD_DIR = SOURCE_DIR + "/public";
 const APP_DIR = SOURCE_DIR + "/src";
 
-const isProd = process.env.NODE_ENV === "production";
+const isProd = require("../config").isProduction;
 
 const extendCSSConfig = {
   fallback: "style-loader",
@@ -27,6 +27,12 @@ const extendCSSConfig = {
         modules: true, // export class name in scss
         importLoaders: 1,
         localIdentName: "[local]" // Hash sass classname
+      }
+    },
+    {
+      loader: "sass-loader",
+      options: {
+        path: SOURCE_DIR + "/config/postcss.config.js"
       }
     }
   ]

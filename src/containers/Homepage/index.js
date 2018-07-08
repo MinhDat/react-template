@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import LoginForm from "../../components/LoginForm";
+import styles from "./styles.scss";
 
-class Homepage extends Component {
+class HomePage extends Component {
   render() {
     // console.log(styles);
     return (
-      <div className="Homepage">
+      <div className={styles.HomePage}>
         <div className="text-center mb-4">
           <img
             className="mb-4"
@@ -23,4 +24,4 @@ class Homepage extends Component {
   }
 }
 
-export default Homepage;
+export default HomePage;

@@ -6,13 +6,13 @@ import {
   ControlLabel,
   Button
 } from "react-bootstrap";
-import styles from "./LoginForm.css";
+import styles from "./styles.scss";
 
 class LoginForm extends Component {
   render() {
     // console.log(styles);
     return (
-      <Form className={styles.login}>
+      <Form className={styles.LoginForm}>
         <FormGroup>
           <ControlLabel htmlFor="inputEmail">Email address</ControlLabel>
           <FormControl

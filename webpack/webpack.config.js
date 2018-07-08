@@ -14,7 +14,7 @@ const {
   APP_DIR,
   extendCSSConfig
 } = require("./webpack.config.base");
-const { extendJS, extendCSS } = require("../src/extendLibrarys");
+const { extendsLibrary, includesLibrary } = require("../src/vendors");
 
 let optionConfig = require("./webpack.config.dev");
 if (isProd) optionConfig = require("./webpack.config.prod");
@@ -22,18 +22,19 @@ if (isProd) optionConfig = require("./webpack.config.prod");
 const config = {
   entry: {
     preLoading: ["babel-polyfill", "react-hot-loader/patch"],
-    app: APP_DIR + "/App.js",
-    ...extendJS
+    ...extendsLibrary,
+    app: APP_DIR + "/App.js"
     // reacthotloader: "react-hot-loader/patch"
   },
   output: {
     path: isProd ? PROD_DIR : DEV_DIR,
-    filename: "js/[name].[sha1:hash:hex:9].js"
+    filename: "js/[name].[hash:9].js"
     // chunkFilename: "js/[name].[hash:9].js"
   },
   resolve: {
     extensions: ["*", ".js", ".jsx"]
   },
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -48,7 +49,7 @@ const config = {
       },
       {
         test: /\.(css|scss)$/,
-        include: extendCSS,
+        include: includesLibrary,
         use: ExtractTextPlugin.extract(extendCSSConfig)
       },
       {
@@ -56,7 +57,7 @@ const config = {
         loader: "url-loader",
         options: {
           limit: 1000,
-          name: "images/[name].[sha1:hash:hex:9].[ext]"
+          name: "images/[name].[hash:9].[ext]"
           // outputPath: "assets"
         }
       },
@@ -65,7 +66,7 @@ const config = {
         loader: "url-loader",
         options: {
           limit: 1000,
-          name: "fonts/[name].[sha1:hash:hex:9].[ext]"
+          name: "fonts/[name].[hash:9].[ext]"
           // outputPath: "assets"
         }
       }
@@ -83,8 +84,8 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin(optionConfig.htmlWebpackPluginOption),
     new ExtractTextPlugin({
-      filename: "css/[name].[sha1:hash:hex:9].css",
       disable: false,
+      filename: "css/[name].[hash:9].css",
       allChunks: true
     }),
     new webpack.ProvidePlugin({

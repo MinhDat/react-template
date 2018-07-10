@@ -1,6 +1,6 @@
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from "./actionTypes";
 
-const loginRequest = payload => ({ type: LOGIN_REQUEST, payload });
+const loginRequest = payloads => ({ type: LOGIN_REQUEST, payloads });
 
 module.exports = {
   loginRequest

@@ -30,7 +30,7 @@ const extendCSSConfig = {
       }
     },
     {
-      loader: "sass-loader",
+      loader: "postcss-loader",
       options: {
         path: SOURCE_DIR + "/config/postcss.config.js"
       }

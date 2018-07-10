@@ -4,11 +4,12 @@ import {
   LOGIN_FAILURE
 } from "../actions/actionTypes";
 
-export default function(state = {}, action) {
+const initialDefault = {};
+
+export default function(state = initialDefault, action) {
   switch (action.type) {
-    case LOGIN_REQUEST:
-      // console.log(action);
-      return action;
+    case LOGIN_SUCCESS:
+      return action.bearer;
     default:
       return state;
   }

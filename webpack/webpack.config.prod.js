@@ -4,7 +4,7 @@ const { APP_DIR, SOURCE_DIR } = require("./webpack.config.base");
 
 module.exports = {
   htmlWebpackPluginOption: {
-    title: "React Template",
+    title: "Wefit",
     minify: {
       collapseWhitespace: true //Minify
     },
@@ -36,7 +36,7 @@ module.exports = {
         }
       },
       {
-        loader: "sass-loader",
+        loader: "postcss-loader",
         options: {
           path: SOURCE_DIR + "/config/postcss.config.js"
         }

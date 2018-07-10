@@ -1,0 +1,35 @@
+.SideBarLeft {
+  margin-left: 0;
+  height: 100%;
+  position: fixed;
+  background: #32323a;
+  padding-top: 80px;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  width: 240px;
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    li {
+      line-height: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      a {
+        color: #aeb2b7;
+        text-decoration: none;
+        display: block;
+        padding: 18px 0 18px 25px;
+        font-size: 13px;
+        outline: none;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+      i {
+        padding-right: 6px;
+      }
+    }
+  }
+}

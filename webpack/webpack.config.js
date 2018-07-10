@@ -14,7 +14,7 @@ const {
   APP_DIR,
   extendCSSConfig
 } = require("./webpack.config.base");
-const { extendsLibrary, includesLibrary } = require("../src/vendors");
+const { importLibrary, includeLibrary } = require("../src/vendors");
 
 let optionConfig = require("./webpack.config.dev");
 if (isProd) optionConfig = require("./webpack.config.prod");
@@ -22,7 +22,7 @@ if (isProd) optionConfig = require("./webpack.config.prod");
 const config = {
   entry: {
     preLoading: ["babel-polyfill", "react-hot-loader/patch"],
-    ...extendsLibrary,
+    ...importLibrary,
     app: APP_DIR + "/App.js"
     // reacthotloader: "react-hot-loader/patch"
   },
@@ -49,7 +49,7 @@ const config = {
       },
       {
         test: /\.(css|scss)$/,
-        include: includesLibrary,
+        include: includeLibrary,
         use: ExtractTextPlugin.extract(extendCSSConfig)
       },
       {
@@ -57,8 +57,9 @@ const config = {
         loader: "url-loader",
         options: {
           limit: 1000,
-          name: "images/[name].[hash:9].[ext]"
-          // outputPath: "assets"
+          name: "[name].[hash:9].[ext]",
+          outputPath: "images/",
+          publicPath: "../images"
         }
       },
       {
@@ -66,8 +67,9 @@ const config = {
         loader: "url-loader",
         options: {
           limit: 1000,
-          name: "fonts/[name].[hash:9].[ext]"
-          // outputPath: "assets"
+          name: "[name].[hash:9].[ext]",
+          outputPath: "fonts/",
+          publicPath: "../fonts"
         }
       }
     ]
@@ -75,12 +77,14 @@ const config = {
   devServer: {
     contentBase: path.resolve(__dirname, isProd ? "../public" : "../build"),
     hot: true,
+    // hotOnly: true,
     compress: true,
     port: 9000,
     stats: "errors-only",
     open: true,
     historyApiFallback: true
   },
+  mode: optionConfig.defineName,
   plugins: [
     new HtmlWebpackPlugin(optionConfig.htmlWebpackPluginOption),
     new ExtractTextPlugin({
@@ -100,7 +104,8 @@ const config = {
       "process.env.NODE_ENV": JSON.stringify(optionConfig.defineName),
       PRODUCTION: isProd
     })
-  ]
+  ],
+  cache: true
 };
 if (isProd) {
   config.plugins.push(

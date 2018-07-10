@@ -1,0 +1,119 @@
+// Left header
+
+.LeftHeader {
+  position: fixed;
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.15);
+  left: 0;
+  right: 0;
+  z-index: 1002;
+  background: #fff;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  .BrandName {
+    background: #1fb5ad;
+    float: left;
+    width: 240px;
+    height: 80px;
+    position: relative;
+    text-align: center;
+
+    a {
+      text-decoration: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+      b {
+        font-size: 20px;
+        color: white;
+      }
+    }
+  }
+  .SidebarToggleBox {
+    float: left;
+    margin-top: 23px;
+    margin-left: -15px;
+    background: #32d2c9;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    .fa-bars {
+      cursor: pointer;
+      display: inline-block;
+      font-size: 15px;
+      padding: 8px 8px 8px 9px;
+      color: rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.LeftHeader::after {
+  clear: both;
+}
+
+// Right header
+
+.RightHeader {
+  position: fixed;
+  right: 0;
+  z-index: 1002;
+  padding-top: 20px;
+  padding-right: 15px;
+  li {
+    margin-left: 10px;
+  }
+  .Search {
+    width: 20px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    border: 1px solid #fff;
+    box-shadow: none;
+    background: #f6f6f6 url(./img/search-icon.png) no-repeat 10px 8px;
+    padding: 0 5px 0 30px;
+    color: #fff;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    line-height: 2.3;
+    font-size: 14px;
+    &:focus {
+      width: 180px;
+      border: 1px solid #f6f6f6;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      color: #c8c8c8;
+      font-weight: 300;
+    }
+  }
+  .Dropdown {
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    padding: 0px;
+    background: none;
+    margin-right: 0;
+    border: 1px solid #f6f6f6;
+    background: #f6f6f6;
+    font-size: 13px;
+    padding-right: 8px;
+    .Avatar {
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      height: 33px;
+    }
+    a {
+      color: #555555;
+      text-decoration: none;
+      outline: none;
+    }
+  }
+}

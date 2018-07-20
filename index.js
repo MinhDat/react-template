@@ -1,12 +1,12 @@
 const express = require("express");
 const path = require("path");
 
-const config = require("./config");
-const PORT = config.PORT_FRONTEND || 3001;
+const { PORT_FRONTEND, PRODUCTION_ENV } = require("./config");
+const PORT = PORT_FRONTEND || 3001;
 
 const app = express();
 
-const pathName = require("./config").isProduction ? "public" : "build";
+const pathName = PRODUCTION_ENV ? "public" : "build";
 
 // console.log(process.env.NODE_ENV);
 // this assumes that all your app files

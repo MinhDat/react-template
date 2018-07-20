@@ -1,7 +1,9 @@
-const configVariable = require("./config.json");
-const isProduction = process.env.NODE_ENV === "production";
-
-module.exports = {
-  configVariable,
-  isProduction
+const config = {
+  PORT_FRONTEND: 3001,
+  BASE_API_URL: "http://localhost:3000/api",
+  // ALLOWEDED_HOSTS: ["onehealth.localhost", "user.localhost"],
+  BASE_DOMAIN: "localhost",
+  PRODUCTION_ENV: process.env.NODE_ENV === "production"
 };
+
+module.exports = config;

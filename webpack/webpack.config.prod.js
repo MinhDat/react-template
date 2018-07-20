@@ -4,7 +4,7 @@ const { APP_DIR, SOURCE_DIR } = require("./webpack.config.base");
 
 module.exports = {
   htmlWebpackPluginOption: {
-    title: "Wefit",
+    title: "React template",
     minify: {
       collapseWhitespace: true //Minify
     },
@@ -13,7 +13,8 @@ module.exports = {
     // chunks: ["contact"], // include file contact.js
     //
     hash: true, // Hash css/js bundle
-    template: APP_DIR + "/index.html"
+    template: APP_DIR + "/index.html",
+    favicon: APP_DIR + "/owl.ico"
   },
   defineName: "production",
   cssConfig: {

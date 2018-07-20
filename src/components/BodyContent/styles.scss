@@ -1,0 +1,57 @@
+.BodyContent {
+  padding-top: 80px !important;
+  transition: 0.5s;
+  background-color: #f1f2f7;
+  height: 100%;
+  .Wrapper {
+    padding: 15px;
+    .Panel {
+      background-color: #fff;
+      padding: 15px;
+      .btnGroup {
+        display: inline-block;
+        margin-bottom: 0;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        .btnPrimary {
+          background-color: #c7cbd6;
+          border-color: #c7cbd6;
+          color: #ffffff;
+          margin-right: 10px;
+          &:hover {
+            background-color: #1fb5ad;
+            border-color: #1fb5ad;
+          }
+        }
+      }
+
+      .PanelBody {
+        margin-top: 15px;
+      }
+    }
+    .PanelHeading {
+      border-color: #eff2f7;
+      font-size: 13px;
+      font-weight: 400;
+      background: #fafafa;
+      text-transform: uppercase;
+      padding: 15px;
+    }
+    table {
+      font-size: 13px;
+    }
+  }
+}
+
+.rowInline {
+  display: inline-flex;
+  width: 100%;
+}

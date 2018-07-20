@@ -8,9 +8,9 @@ const DEV_DIR = SOURCE_DIR + "/build";
 const PROD_DIR = SOURCE_DIR + "/public";
 const APP_DIR = SOURCE_DIR + "/src";
 
-const isProd = require("../config").isProduction;
+const { PRODUCTION_ENV } = require("../config");
 
-const extendCSSConfig = {
+const CSS_CONFIG_BASE = {
   fallback: "style-loader",
   use: [
     {
@@ -38,4 +38,10 @@ const extendCSSConfig = {
   ]
 };
 
-module.exports = { isProd, DEV_DIR, PROD_DIR, APP_DIR, extendCSSConfig };
+module.exports = {
+  PRODUCTION_ENV,
+  DEV_DIR,
+  PROD_DIR,
+  APP_DIR,
+  CSS_CONFIG_BASE
+};

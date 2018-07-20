@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+import Alert from "../../components/Alert";
 
 class AppWrapper extends Component {
   render() {
     // console.log(this.props);
     return (
       <div className="AppWrapper">
-        <div className="container-fluid">{this.props.children}</div>
+        <Alert />
+        {this.props.children}
       </div>
     );
   }

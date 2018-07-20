@@ -1,5 +1,5 @@
 {
-  "name": "wefit",
+  "name": "react-template",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,7 +13,7 @@
     "dev": "NODE_ENV=development nodemon index.js",
     "prod": "NODE_ENV=production nodemon index.js"
   },
-  "author": "One Health",
+  "author": "Ha Minh Dat",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.26.0",
@@ -25,9 +25,11 @@
     "path": "^0.12.7",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-select": "^1.2.1",
     "webpack": "^4.2.1"
   },
   "devDependencies": {
+    "animate.css": "^3.6.1",
     "autoprefixer": "^8.6.5",
     "babel-preset-stage-2": "^6.24.1",
     "body-parser": "^1.18.2",
@@ -56,6 +58,7 @@
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
+    "sweetalert": "^2.1.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "url-loader": "^1.0.1",
     "webpack-cli": "^2.0.13",

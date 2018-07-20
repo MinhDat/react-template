@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+
 import {
   Form,
   FormGroup,
@@ -14,70 +15,44 @@ import { loginRequest } from "../../redux/actions";
 import styles from "./styles.scss";
 
 class LoginForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      password: ""
-    };
-    this.handleChangeEmail = this.handleChangeEmail.bind(this);
-    this.handleChangePassword = this.handleChangePassword.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
   shouldComponentUpdate(nextProps, nextState) {
     const { auth, history } = nextProps;
     if (!_.isEmpty(auth)) {
       history.replace("/");
+      return true;
     }
     return false;
   }
 
-  handleChangeEmail(e) {
-    this.setState({
-      username: e.target.value
+  handleSubmit = e => {
+    this.props.loginRequest({
+      username: e.target[0].value,
+      password: e.target[1].value
     });
-  }
-
-  handleChangePassword(e) {
-    this.setState({
-      password: e.target.value
-    });
-  }
-
-  handleSubmit() {
-    if (
-      this.state.username.trim().length > 0 &&
-      this.state.password.trim().length > 0
-    ) {
-      // console.log(this.state);
-      this.props.loginRequest(this.state);
-    }
-  }
+    e.preventDefault();
+  };
 
   render() {
     // console.log(123456789);
     return (
-      <Form className={styles.LoginForm}>
+      <Form className={styles.LoginForm} onSubmit={e => this.handleSubmit(e)}>
         <FormGroup>
-          <ControlLabel htmlFor="inputEmail">Email address</ControlLabel>
+          <ControlLabel htmlFor="username">Username</ControlLabel>
           <FormControl
-            type="email"
-            id="inputEmail"
-            placeholder="Email address"
+            type="text"
+            id="username"
+            placeholder="Username or Email address"
             required
-            onChange={this.handleChangeEmail}
           />
         </FormGroup>
 
         <FormGroup>
-          <ControlLabel htmlFor="inputPassword">Password</ControlLabel>
+          <ControlLabel htmlFor="password">Password</ControlLabel>
           <FormControl
             type="password"
-            id="inputPassword"
+            id="password"
             placeholder="Password"
             required
-            onChange={this.handleChangePassword}
           />
         </FormGroup>
         <div className="mb-3">
@@ -87,7 +62,7 @@ class LoginForm extends Component {
           bsStyle="primary"
           bsSize="lg"
           className="btn-block"
-          onClick={this.handleSubmit}
+          type="submit"
         >
           Sign in
         </Button>

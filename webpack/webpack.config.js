@@ -8,16 +8,16 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const {
-  isProd,
+  PRODUCTION_ENV,
   DEV_DIR,
   PROD_DIR,
   APP_DIR,
-  extendCSSConfig
+  CSS_CONFIG_BASE
 } = require("./webpack.config.base");
 const { importLibrary, includeLibrary } = require("../src/vendors");
 
 let optionConfig = require("./webpack.config.dev");
-if (isProd) optionConfig = require("./webpack.config.prod");
+if (PRODUCTION_ENV) optionConfig = require("./webpack.config.prod");
 
 const config = {
   entry: {
@@ -27,7 +27,7 @@ const config = {
     // reacthotloader: "react-hot-loader/patch"
   },
   output: {
-    path: isProd ? PROD_DIR : DEV_DIR,
+    path: PRODUCTION_ENV ? PROD_DIR : DEV_DIR,
     filename: "js/[name].[hash:9].js"
     // chunkFilename: "js/[name].[hash:9].js"
   },
@@ -44,13 +44,13 @@ const config = {
       },
       {
         test: /\.(css|scss)$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/].concat(includeLibrary),
         use: ExtractTextPlugin.extract(optionConfig.cssConfig)
       },
       {
         test: /\.(css|scss)$/,
         include: includeLibrary,
-        use: ExtractTextPlugin.extract(extendCSSConfig)
+        use: ExtractTextPlugin.extract(CSS_CONFIG_BASE)
       },
       {
         test: /\.(png|jpg|ico|gif|svg)$/,
@@ -75,14 +75,17 @@ const config = {
     ]
   },
   devServer: {
-    contentBase: path.resolve(__dirname, isProd ? "../public" : "../build"),
+    contentBase: path.resolve(
+      __dirname,
+      PRODUCTION_ENV ? "../public" : "../build"
+    ),
     hot: true,
-    // hotOnly: true,
+    disableHostCheck: true,
     compress: true,
-    port: 9000,
     stats: "errors-only",
     open: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    port: 9000
   },
   mode: optionConfig.defineName,
   plugins: [
@@ -102,12 +105,12 @@ const config = {
     new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(optionConfig.defineName),
-      PRODUCTION: isProd
+      PRODUCTION: PRODUCTION_ENV
     })
   ],
   cache: true
 };
-if (isProd) {
+if (PRODUCTION_ENV) {
   config.plugins.push(
     new webpack.SourceMapDevToolPlugin({
       filename: "[file].map"

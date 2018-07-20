@@ -10,13 +10,11 @@ const fetchApi = (path, method, payloads = {}, type = "api") =>
     const body = JSON.stringify(payloads);
     if (type !== "auth") {
       const authenication = JSON.parse(localStorage.getItem("authenication"));
-      // console.log("authenication", authenication);
-
-      headers["oh-access-token"] = authenication.access_token;
-      if (authenication) {
-      } else {
+      if (!authenication) {
         reject();
       }
+      headers["oh-access-token"] = authenication.access_token;
+      headers["fitness"] = authenication.fitness;
     }
     const objFetch = {
       method,

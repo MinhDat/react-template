@@ -70,7 +70,7 @@ const config = {
           limit: 1000,
           name: "[name].[hash:9].[ext]",
           outputPath: "fonts/",
-          publicPath: "../fonts"
+          publicPath: "../../fonts"
         }
       }
     ]

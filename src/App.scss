@@ -4,3 +4,60 @@
   font-weight: 400;
   font-style: normal;
 }
+@font-face {
+  font-family: "Circularstd";
+  src: url("./utils/fonts/CircularStd-BoldItalic.otf") format("opentype"),
+    url("./utils/fonts/CircularStd-BlackItalic.otf") format("opentype"),
+    url("./utils/fonts/CircularStd-BookItalic.otf") format("opentype"),
+    url("./utils/fonts/CircularStd-MediumItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Circularstd bold";
+  src: url("./utils/fonts/CircularStd-Bold.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Circularstd book";
+  src: url("./utils/fonts/CircularStd-Book.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Circularstd medium";
+  src: url("./utils/fonts/CircularStd-Medium.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Bebasneue";
+  src: url("./utils/fonts/BebasNeue-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Bebasneue";
+  src: url("./utils/fonts/BebasNeue-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Bebasneue";
+  src: url("./utils/fonts/BebasNeue.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Bebasneue";
+  src: url("./utils/fonts/BebasNeue-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Bebasneue book";
+  src: url("./utils/fonts/BebasNeue-Book.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}

@@ -5,7 +5,7 @@ class LogoBottom extends Component {
   render() {
     return (
       <div className={styles.LogoBottom}>
-        <a href="/" className={styles.TextLogo}>
+        <a href="/react-template/" className={styles.TextLogo}>
           Ha Minh Dat's Information
         </a>
       </div>

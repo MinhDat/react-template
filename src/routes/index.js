@@ -21,6 +21,7 @@ export default () => {
       <RouteRegister path="/noverified" component={NoVerifiedPage} />
       <RouteRegister path="/" component={Dashboard} /> */}
       <Route path="/" component={Homepage} />
+      <Route path="/react-template/" component={Homepage} />
     </Switch>
   );
 };

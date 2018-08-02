@@ -1,83 +1,144 @@
-.Menu {
+.General {
   position: fixed;
   z-index: 999999;
   display: block;
   height: 100%;
-  .LargeScreen {
+  display: inline-flex;
+
+  .Menu {
+    .LargeScreen {
+      position: relative;
+      z-index: 999;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      width: 90px;
+      height: 100%;
+      float: left;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      border-right: 1px solid #e0e0e0;
+      background-color: #fff;
+      text-align: center;
+    }
+  }
+
+  .MenuHamber {
+    height: 90px;
+    padding-top: 0px;
+    border-bottom: 1px solid #e0e0e0;
+    .MenuAction {
+      position: relative;
+      z-index: 999;
+      width: 100px;
+      height: 90px;
+      padding-top: 39px;
+      text-align: center;
+      max-width: 100%;
+      display: block;
+      font-family: "Circularstd book", sans-serif;
+      color: #000;
+      font-size: 25px;
+      text-decoration: none;
+      .Line {
+        position: relative;
+        display: block;
+        overflow: visible;
+        width: 20px;
+        height: 2px;
+        margin-right: auto;
+        margin-left: auto;
+        background-color: #000;
+        color: red;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        top: -3px;
+        transform-style: preserve-3d;
+        transition: transform 250ms ease-in-out;
+      }
+    }
+  }
+
+  .LogoBottom {
+    height: 120px;
+    line-height: 20px;
+    .TextLogo {
+      position: absolute;
+      width: 380px;
+      -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+      font-family: "Circularstd black", sans-serif;
+      color: #000;
+      font-size: 23px;
+      text-decoration: none;
+      bottom: 180px;
+      left: -146px;
+    }
+  }
+
+  .MenuContent {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 680px;
+    height: 100%;
+    padding: 91px 80px 10%;
+    float: left;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-right: 1px none #e0e0e0;
+    background-color: #fff;
+
+    transform-style: preserve-3d;
+    transform: translateX(-380px) translateY(0px) translateZ(0px);
+    opacity: 0;
+  }
+  .Item {
     position: relative;
     z-index: 999;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 90px;
-    height: 100%;
-    float: left;
+    display: block;
+    margin-top: 0px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    border-right: 1px solid #e0e0e0;
-    background-color: #fff;
-    text-align: center;
-  }
-}
-
-.MenuHamber {
-  height: 90px;
-  padding-top: 0px;
-  border-bottom: 1px solid #e0e0e0;
-  .MenuAction {
-    position: relative;
-    z-index: 999;
-    width: 100px;
-    height: 90px;
-    padding-top: 39px;
-    text-align: center;
-    max-width: 100%;
-    display: block;
-    font-family: "Circularstd book", sans-serif;
-    color: #000;
-    font-size: 25px;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-transition: color 200ms ease;
+    transition: color 200ms ease;
+    font-family: Bebasneue, sans-serif;
+    color: #a0a2a6;
+    font-size: 72px;
+    line-height: 76px;
+    letter-spacing: 5px;
     text-decoration: none;
-    .Line {
-      position: relative;
-      display: block;
-      overflow: visible;
-      width: 20px;
-      height: 2px;
-      margin-right: auto;
-      margin-left: auto;
-      background-color: #000;
-      color: red;
-      margin-top: 3px;
-      margin-bottom: 3px;
-      top: -3px;
-      transform-style: preserve-3d;
-      transition: transform 250ms ease-in-out;
-    }
+    font-family: Bebasneue, sans-serif;
+    transform-style: preserve-3d;
   }
-}
-
-.LogoBottom {
-  height: 120px;
-  line-height: 20px;
-  .TextLogo {
-    position: absolute;
-    width: 380px;
-    -webkit-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-    font-family: "Circularstd black", sans-serif;
-    color: #000;
-    font-size: 23px;
-    text-decoration: none;
-    bottom: 180px;
-    left: -146px;
+  .ItemHome {
+    transform: translateX(-120%) translateY(0px) translateZ(0px);
+    transition: color 0.2s ease 0s, opacity 200ms, transform 200ms;
+  }
+  .ItemAboutMe {
+    transform: translateX(-96%) translateY(0px) translateZ(0px);
+    transition: color 0.2s ease 0s, opacity 300ms, transform 300ms;
+  }
+  .ItemProject {
+    transform: translateX(-80%) translateY(0px) translateZ(0px);
+    transition: color 0.2s ease 0s, opacity 200ms, transform 200ms;
   }
 }

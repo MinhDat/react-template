@@ -1,21 +1,26 @@
 import React from "react";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
-import RouteRegister from "./RouteRegister";
+import Loadable from "react-loadable";
+import { Switch, Route } from "react-router-dom";
 
-import Homepage from "../containers/Homepage";
-import Dashboard from "../containers/Dashboard";
-// import Logout from "../containers/Logout";
+const Loading = () => <div>Loading...</div>;
+
+const Homepage = Loadable({
+  loader: () => import("../containers/Homepage"),
+  loading: Loading
+});
 
 export default () => {
   return (
-    <Router>
-      <Switch>
-        {/* <Route exact path="/logout" component={Logout} /> */}
-        {/* <Route exact path="/login" component={Login} /> */}
-        <RouteRegister exact path="/login" component={Homepage} />
-        <RouteRegister path="/dashboard" component={Dashboard} />
-        <RouteRegister path="/" component={Dashboard} />
-      </Switch>
-    </Router>
+    <Switch>
+      {/* <RouteRegister exact path="/login" component={Homepage} />
+      <RouteRegister path="/dashboard" component={Dashboard} />
+      <RouteRegister path="/user" component={UserPage} />
+      <RouteRegister path="/all-users" component={UsersManagement} />
+      <RouteRegister path="/fitness" component={FitnessPage} />
+      <RouteRegister path="/notfound" component={NotFoundPage} />
+      <RouteRegister path="/noverified" component={NoVerifiedPage} />
+      <RouteRegister path="/" component={Dashboard} /> */}
+      <Route path="/" component={Homepage} />
+    </Switch>
   );
 };

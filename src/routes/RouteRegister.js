@@ -12,16 +12,10 @@ import { domainRequest } from "../redux/actions";
 
 // domainRequest();
 
-class RouteRegister extends React.Component {
+class RouteRegister extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.props.domainRequest();
-  }
-
-  _checkNotFound(domain) {
-    return domain.some(function(v) {
-      return location.href.includes(v);
-    });
+    this.props.domainRequest({ url: location.href });
   }
 
   _checkRegister() {
@@ -31,7 +25,7 @@ class RouteRegister extends React.Component {
   render() {
     const { path, auth, component: RouteComponent, ...rest } = this.props;
     return !_.isUndefined(auth.domain) ? (
-      !this._checkNotFound(auth.domain) ? (
+      !auth.domain.verify ? (
         path.length > 1 ? (
           <Route
             {...rest}

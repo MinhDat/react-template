@@ -191,6 +191,7 @@
   background: #fff;
   width: 100%;
   max-width: 1024px;
+  max-height: 390px;
   padding: 0;
   margin: auto;
   border-radius: 5px;
@@ -229,16 +230,21 @@
 }
 
 input {
+  font-size: 14px;
   &::-webkit-input-placeholder {
     font-style: italic;
+    font-size: 14px;
   }
   &:-moz-placeholder {
     font-style: italic;
+    font-size: 14px;
   }
   &::-moz-placeholder {
     font-style: italic;
+    font-size: 14px;
   }
   &:-ms-input-placeholder {
     font-style: italic;
+    font-size: 14px;
   }
 }

@@ -38,10 +38,18 @@ const CSS_CONFIG_BASE = {
   ]
 };
 
+const HTML_WEBPACK_OPTION_BASE = {
+  title: "Ha Minh Dat's curriculum vitae",
+  hash: true, // Hash css/js bundle
+  template: APP_DIR + "/index.html",
+  favicon: APP_DIR + "/owl.ico"
+};
+
 module.exports = {
   PRODUCTION_ENV,
   DEV_DIR,
   PROD_DIR,
   APP_DIR,
-  CSS_CONFIG_BASE
+  CSS_CONFIG_BASE,
+  HTML_WEBPACK_OPTION_BASE
 };

@@ -1,14 +1,19 @@
 import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
+import Loadable from "react-loadable";
+
 import sagas from "./redux/sagas";
 import configureStore from "./redux/configureStore";
-import AppWrapper from "./containers/AppWrapper";
 import routes from "./routes";
 import "./App.scss";
 
 // Add extend css file
-// import "bootstrap/dist/css/bootstrap.css";
+const AppWrapper = Loadable({
+  loader: () => import("./containers/AppWrapper"),
+  loading: () => <div>Loading...</div>
+});
 
 // Create redux store with history
 const initialState = {};
@@ -16,15 +21,15 @@ const store = configureStore(initialState);
 // console.log(store);
 store.runSaga(sagas);
 
-class App extends React.Component {
-  render() {
-    return (
-      <Provider store={store}>
+const App = () => {
+  return (
+    <Provider store={store}>
+      <Router>
         <AppWrapper>{routes()}</AppWrapper>
-      </Provider>
-    );
-  }
-}
+      </Router>
+    </Provider>
+  );
+};
 render(<App />, document.getElementById("App"));
 
 module.hot.accept();

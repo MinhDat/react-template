@@ -5,7 +5,13 @@ import {
   LOGIN_FAILURE,
   DOMAIN_REQUEST,
   DOMAIN_SUCCESS,
-  DOMAIN_FAILURE
+  DOMAIN_FAILURE,
+  CHECK_DOMAIN_REQUEST,
+  CHECK_DOMAIN_SUCCESS,
+  CHECK_DOMAIN_FAILURE,
+  ADDRESS_REQUEST,
+  ADDRESS_SUCCESS,
+  ADDRESS_FAILURE
 } from "../actions/constants";
 // import { push } from 'connected-react-router'
 
@@ -36,8 +42,8 @@ function* loginAsync(action) {
 function* domainAsync(action) {
   try {
     const { payloads } = action;
-    const domain = yield call(api._get, {
-      path: "oauth/domain",
+    const domain = yield call(api._post, {
+      path: "oauth/index",
       payloads,
       type: "auth"
     });
@@ -51,8 +57,46 @@ function* domainAsync(action) {
   }
 }
 
+function* checkDomainAsync(action) {
+  try {
+    const { payloads } = action;
+    const domain = yield call(api._post, {
+      path: "oauth/index",
+      payloads,
+      type: "auth"
+    });
+    const { one_health_msg } = domain;
+    const data = one_health_msg;
+    // console.log(data);
+    yield put({ type: CHECK_DOMAIN_SUCCESS, data });
+  } catch (ex) {
+    // console.log("action_failure", action);
+    yield put({ type: CHECK_DOMAIN_FAILURE });
+  }
+}
+
+function* addressRequestAsync(action) {
+  try {
+    const { payloads } = action;
+    const res = yield call(api._get, {
+      path: "oauth/region",
+      payloads,
+      type: "auth"
+    });
+    const { one_health_msg } = res;
+    const data = one_health_msg;
+    // console.log(data);
+    yield put({ type: ADDRESS_SUCCESS, data });
+  } catch (ex) {
+    // console.log("action_failure", action);
+    yield put({ type: ADDRESS_FAILURE });
+  }
+}
+
 // Our watcher Saga: spawn a new loginAsync task on each LOGIN_REQUEST
 export function* watchAuthAsync() {
   yield takeLatest(LOGIN_REQUEST, loginAsync);
   yield takeLatest(DOMAIN_REQUEST, domainAsync);
+  yield takeLatest(CHECK_DOMAIN_REQUEST, checkDomainAsync);
+  yield takeLatest(ADDRESS_REQUEST, addressRequestAsync);
 }

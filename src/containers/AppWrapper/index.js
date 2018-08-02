@@ -1,16 +1,24 @@
 import React, { Component } from "react";
-import Alert from "../../components/Alert";
+import { withRouter } from "react-router-dom";
+import Loadable from "react-loadable";
+
+// import _ from "lodash";
+// import styles from "./styles.scss";
+
+const Menu = Loadable({
+  loader: () => import("../../components/Menu"),
+  loading: () => <div>Loading...</div>
+});
 
 class AppWrapper extends Component {
   render() {
-    // console.log(this.props);
     return (
       <div className="AppWrapper">
-        <Alert />
+        <Menu />
         {this.props.children}
       </div>
     );
   }
 }
 
-export default AppWrapper;
+export default withRouter(AppWrapper);

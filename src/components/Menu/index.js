@@ -1,53 +1,32 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-
 import styles from "./styles.scss";
+import Loadable from "react-loadable";
+
+const MenuHamber = Loadable({
+  loader: () => import("./MenuHamber"),
+  loading: () => <div>Loading...</div>
+});
+
+const LogoBottom = Loadable({
+  loader: () => import("./LogoBottom"),
+  loading: () => <div>Loading...</div>
+});
 
 class Menu extends Component {
-  shouldComponentUpdate(nextProps) {
-    if (nextProps.menu !== this.props.menu) {
-      return this._actionNoRender();
-    }
-    return true;
-  }
-
   render() {
     return (
-      <div className={styles.Menu} style={{ marginLeft: "0px" }}>
-        <ul>
-          <li>
-            <a href="#">
-              <i className="fa fa-dashboard" />
-              <span>Dashboard</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <i className="fa fa-user-plus" />
-              <span>Register</span>
-            </a>
-          </li>
-        </ul>
+      <div className={styles.Menu}>
+        <div className={styles.LargeScreen}>
+          <MenuHamber />
+          <LogoBottom />
+        </div>
       </div>
     );
   }
-
-  _actionNoRender() {
-    let element = document.getElementsByClassName(styles.Menu);
-    let sbMarginLeft = element[0].style.marginLeft;
-    if (sbMarginLeft === "0px") {
-      element[0].style.marginLeft = "-240px";
-    } else {
-      element[0].style.marginLeft = "0px";
-    }
-    return false;
-  }
 }
-const mapStateToProps = state => {
-  return {
-    menu: state.menu
-  };
-};
 
-export default connect(mapStateToProps)(Menu);
+// const mapStateToProps = state => {
+//   return { auth: state.auth };
+// };
+
+export default Menu;

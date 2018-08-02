@@ -1,13 +1,17 @@
-# react-template
+# Register fitness page
 
-npm i
+\*\*version 1.0
 
-## Start development
+## Initial
+
+- npm i
+
+## Running development environment
 
 - npm run build:dev
 - npm run start:dev
 
-## Start production
+## Running production environment
 
 - npm run build:prod
 - npm run start:prod

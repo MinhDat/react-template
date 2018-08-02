@@ -25,7 +25,10 @@ function* checkAccountAsync(action) {
     yield put({ type: CHECK_ACCOUNT_SUCCESS, data: one_health_msg });
   } catch (ex) {
     // console.log(ex);
-    yield put({ type: SHOW_ALERT, payloads: { message: ex.error.message } });
+    yield put({
+      type: SHOW_ALERT,
+      payloads: { message: ex.error.message, type: "error" }
+    });
     yield put({ type: CHECK_ACCOUNT_FAILURE });
   }
 }
@@ -40,8 +43,15 @@ function* createAccountAsync(action) {
     });
     const { one_health_msg } = data;
     yield put({ type: CREATE_ACCOUNT_SUCCESS, data: one_health_msg });
+    yield put({
+      type: SHOW_ALERT,
+      payloads: { message: "Success", type: "success" }
+    });
   } catch (ex) {
-    yield put({ type: SHOW_ALERT, payloads: { message: ex.error.message } });
+    yield put({
+      type: SHOW_ALERT,
+      payloads: { message: ex.error.message, type: "error" }
+    });
     yield put({ type: CREATE_ACCOUNT_FAILURE });
   }
 }

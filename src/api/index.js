@@ -14,7 +14,11 @@ const fetchApi = (path, method, payloads = {}, type = "api") =>
         reject();
       }
       headers["oh-access-token"] = authenication.access_token;
-      headers["fitness"] = authenication.fitness;
+      if (payloads && payloads.rootAdmin === true) {
+        delete payloads.rootAdmin;
+      } else {
+        headers["fitness"] = authenication.fitness;
+      }
     }
     const objFetch = {
       method,
@@ -23,8 +27,12 @@ const fetchApi = (path, method, payloads = {}, type = "api") =>
     };
     if (method === "GET" || method === "DELETE") {
       delete objFetch.body;
-      if (!_.isUndefined(payloads.id)) {
-        path += "?id=" + payloads.id;
+      if (!_.isUndefined(payloads) && !_.isEmpty(payloads)) {
+        let params = "?";
+        for (let key in payloads) {
+          params += `${key}=${payloads[key]}&&`;
+        }
+        path += params;
       }
     }
     fetch(path, objFetch)

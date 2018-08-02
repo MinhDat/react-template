@@ -1,34 +1,83 @@
 .Menu {
-  height: 100%;
   position: fixed;
-  background: #32323a;
-  padding-top: 80px;
-  left: 0;
-  overflow-x: hidden;
-  transition: 0.5s;
-  width: 240px;
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-    li {
-      line-height: 15px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      a {
-        color: #aeb2b7;
-        text-decoration: none;
-        display: block;
-        padding: 18px 0 18px 25px;
-        font-size: 13px;
-        outline: none;
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-        -ms-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-      }
-      i {
-        padding-right: 6px;
-      }
+  z-index: 999999;
+  display: block;
+  height: 100%;
+  .LargeScreen {
+    position: relative;
+    z-index: 999;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 90px;
+    height: 100%;
+    float: left;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    border-right: 1px solid #e0e0e0;
+    background-color: #fff;
+    text-align: center;
+  }
+}
+
+.MenuHamber {
+  height: 90px;
+  padding-top: 0px;
+  border-bottom: 1px solid #e0e0e0;
+  .MenuAction {
+    position: relative;
+    z-index: 999;
+    width: 100px;
+    height: 90px;
+    padding-top: 39px;
+    text-align: center;
+    max-width: 100%;
+    display: block;
+    font-family: "Circularstd book", sans-serif;
+    color: #000;
+    font-size: 25px;
+    text-decoration: none;
+    .Line {
+      position: relative;
+      display: block;
+      overflow: visible;
+      width: 20px;
+      height: 2px;
+      margin-right: auto;
+      margin-left: auto;
+      background-color: #000;
+      color: red;
+      margin-top: 3px;
+      margin-bottom: 3px;
+      top: -3px;
+      transform-style: preserve-3d;
+      transition: transform 250ms ease-in-out;
     }
+  }
+}
+
+.LogoBottom {
+  height: 120px;
+  line-height: 20px;
+  .TextLogo {
+    position: absolute;
+    width: 380px;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    font-family: "Circularstd black", sans-serif;
+    color: #000;
+    font-size: 23px;
+    text-decoration: none;
+    bottom: 180px;
+    left: -146px;
   }
 }

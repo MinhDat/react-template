@@ -28,13 +28,14 @@ const config = {
   },
   output: {
     path: PRODUCTION_ENV ? PROD_DIR : DEV_DIR,
-    filename: "js/[name].[hash:9].js"
+    filename: "js/[name].[hash:9].js",
+    publicPath: "/"
     // chunkFilename: "js/[name].[hash:9].js"
   },
   resolve: {
     extensions: ["*", ".js", ".jsx"]
   },
-  devtool: "source-map",
+  devtool: PRODUCTION_ENV ? "source-map" : "inline-source-map",
   module: {
     rules: [
       {
@@ -59,11 +60,11 @@ const config = {
           limit: 1000,
           name: "[name].[hash:9].[ext]",
           outputPath: "images/",
-          publicPath: "../images"
+          publicPath: "../../images"
         }
       },
       {
-        test: /\.(eot|ttf|woff|woff2)$/,
+        test: /\.(eot|ttf|woff|woff2|otf)$/,
         loader: "url-loader",
         options: {
           limit: 1000,

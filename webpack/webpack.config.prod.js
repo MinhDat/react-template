@@ -1,20 +1,21 @@
 // WEBPACK CONFIGURATION PRODUCTION
 
-const { APP_DIR, SOURCE_DIR } = require("./webpack.config.base");
+const {
+  APP_DIR,
+  SOURCE_DIR,
+  HTML_WEBPACK_OPTION_BASE
+} = require("./webpack.config.base");
 
 module.exports = {
   htmlWebpackPluginOption: {
-    title: "React template",
+    ...HTML_WEBPACK_OPTION_BASE,
     minify: {
       collapseWhitespace: true //Minify
-    },
+    }
     // // Lazy loading
     // excludeChunks: ["contact"], // exclude file contact.js
     // chunks: ["contact"], // include file contact.js
     //
-    hash: true, // Hash css/js bundle
-    template: APP_DIR + "/index.html",
-    favicon: APP_DIR + "/owl.ico"
   },
   defineName: "production",
   cssConfig: {

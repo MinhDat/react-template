@@ -1,4 +1,4 @@
-# minhdat.github.io page
+# minhdat.github.io/react-template page
 
 \*\*version 1.1
 

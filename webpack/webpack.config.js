@@ -1,6 +1,6 @@
 // WEBPACK CONFIGURATION
 
-// minhdat.github.io
+// react-template
 // Import Webpack npm module
 //
 const webpack = require("webpack");
@@ -30,7 +30,7 @@ const config = {
   },
   output: {
     path: PRODUCTION_ENV ? PROD_DIR : DEV_DIR,
-    filename: "minhdat.github.io/js/[name].[hash:9].js",
+    filename: "react-template/js/[name].[hash:9].js",
     publicPath: "/"
     // chunkFilename: "js/[name].[hash:9].js"
   },
@@ -61,7 +61,7 @@ const config = {
         options: {
           limit: 1000,
           name: "[name].[hash:9].[ext]",
-          outputPath: "minhdat.github.io/images/",
+          outputPath: "react-template/images/",
           publicPath: "../../images"
         }
       },
@@ -71,7 +71,7 @@ const config = {
         options: {
           limit: 1000,
           name: "[name].[hash:9].[ext]",
-          outputPath: "minhdat.github.io/fonts/",
+          outputPath: "react-template/fonts/",
           publicPath: "../../fonts"
         }
       }
@@ -95,7 +95,7 @@ const config = {
     new HtmlWebpackPlugin(optionConfig.htmlWebpackPluginOption),
     new ExtractTextPlugin({
       disable: false,
-      filename: "minhdat.github.io/css/[name].[hash:9].css",
+      filename: "react-template/css/[name].[hash:9].css",
       allChunks: true
     }),
     new webpack.ProvidePlugin({

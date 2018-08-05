@@ -4,17 +4,17 @@ import Loadable from "react-loadable";
 
 const MenuHamburger = Loadable({
   loader: () => import("./MenuHamburger"),
-  loading: () => <div>Loading...</div>
+  loading: () => <div />
 });
 
 const LogoBottom = Loadable({
   loader: () => import("./LogoBottom"),
-  loading: () => <div>Loading...</div>
+  loading: () => <div />
 });
 
 const MenuContent = Loadable({
   loader: () => import("./MenuContent"),
-  loading: () => <div>Loading...</div>
+  loading: () => <div />
 });
 
 class Menu extends Component {

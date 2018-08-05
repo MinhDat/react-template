@@ -6,6 +6,8 @@ const path = require("path");
 const SOURCE_DIR = path.dirname(__dirname);
 const DEV_DIR = SOURCE_DIR + "/build";
 const PROD_DIR = SOURCE_DIR + "/public";
+const SSR_DIR = SOURCE_DIR + "/dist";
+const SERVER_DIR = SOURCE_DIR + "/server";
 const APP_DIR = SOURCE_DIR + "/src";
 
 const { PRODUCTION_ENV } = require("../config");
@@ -49,7 +51,9 @@ module.exports = {
   PRODUCTION_ENV,
   DEV_DIR,
   PROD_DIR,
+  SSR_DIR,
   APP_DIR,
+  SERVER_DIR,
   CSS_CONFIG_BASE,
   HTML_WEBPACK_OPTION_BASE
 };

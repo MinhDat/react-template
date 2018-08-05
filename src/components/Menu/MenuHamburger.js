@@ -40,8 +40,8 @@ class MenuHamber extends Component {
       projectDelay = 100;
       this.setState({ menu: false });
       setTimeout(() => {
-        this._transformAnimation(MenuContent, 380, 200, mcOpacity);
-      }, 1000);
+        this._transformAnimation(MenuContent, 380, 300, mcOpacity);
+      }, 200);
     } else {
       this.setState({ menu: true });
       this._transformAnimation(MenuContent, 380, 200, mcOpacity);
@@ -81,7 +81,7 @@ class MenuHamber extends Component {
   render() {
     return (
       <div
-        className={styles.MenuHamber}
+        className={styles.MenuHamburger}
         onClick={() => this.handleActionMenu()}
       >
         <a href="#" className={styles.MenuAction}>

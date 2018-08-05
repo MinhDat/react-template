@@ -1,6 +1,8 @@
 // WEBPACK CONFIGURATION
 
+// minhdat.github.io
 // Import Webpack npm module
+//
 const webpack = require("webpack");
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -28,7 +30,7 @@ const config = {
   },
   output: {
     path: PRODUCTION_ENV ? PROD_DIR : DEV_DIR,
-    filename: "js/[name].[hash:9].js",
+    filename: "minhdat.github.io/js/[name].[hash:9].js",
     publicPath: "/"
     // chunkFilename: "js/[name].[hash:9].js"
   },
@@ -59,7 +61,7 @@ const config = {
         options: {
           limit: 1000,
           name: "[name].[hash:9].[ext]",
-          outputPath: "images/",
+          outputPath: "minhdat.github.io/images/",
           publicPath: "../../images"
         }
       },
@@ -69,7 +71,7 @@ const config = {
         options: {
           limit: 1000,
           name: "[name].[hash:9].[ext]",
-          outputPath: "fonts/",
+          outputPath: "minhdat.github.io/fonts/",
           publicPath: "../../fonts"
         }
       }
@@ -93,7 +95,7 @@ const config = {
     new HtmlWebpackPlugin(optionConfig.htmlWebpackPluginOption),
     new ExtractTextPlugin({
       disable: false,
-      filename: "css/[name].[hash:9].css",
+      filename: "minhdat.github.io/css/[name].[hash:9].css",
       allChunks: true
     }),
     new webpack.ProvidePlugin({

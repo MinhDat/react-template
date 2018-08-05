@@ -4,3 +4,5 @@ public/
 .vscode/
 src/
 package.json
+yarn.lock
+package-lock.json

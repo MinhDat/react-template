@@ -10,12 +10,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const {
-  PRODUCTION_ENV,
   DEV_DIR,
   PROD_DIR,
   APP_DIR,
   CSS_CONFIG_BASE
 } = require("./webpack.config.base");
+const { SUB_DOMAIN, PRODUCTION_ENV } = require("../config");
 const { importLibrary, includeLibrary } = require("../src/vendors");
 
 let optionConfig = require("./webpack.config.dev");
@@ -30,8 +30,8 @@ const config = {
   },
   output: {
     path: PRODUCTION_ENV ? PROD_DIR : DEV_DIR,
-    filename: "react-template/js/[name].[hash:9].js",
-    publicPath: "/"
+    filename: "js/[name].[hash:9].js",
+    publicPath: SUB_DOMAIN + "/"
     // chunkFilename: "js/[name].[hash:9].js"
   },
   resolve: {
@@ -61,8 +61,8 @@ const config = {
         options: {
           limit: 1000,
           name: "[name].[hash:9].[ext]",
-          outputPath: "react-template/images/",
-          publicPath: "../../images"
+          outputPath: "images/",
+          publicPath: "../.." + SUB_DOMAIN + "/images"
         }
       },
       {
@@ -71,8 +71,8 @@ const config = {
         options: {
           limit: 1000,
           name: "[name].[hash:9].[ext]",
-          outputPath: "react-template/fonts/",
-          publicPath: "../../fonts"
+          outputPath: "fonts/",
+          publicPath: "../.." + SUB_DOMAIN + "/fonts"
         }
       }
     ]
@@ -95,7 +95,7 @@ const config = {
     new HtmlWebpackPlugin(optionConfig.htmlWebpackPluginOption),
     new ExtractTextPlugin({
       disable: false,
-      filename: "react-template/css/[name].[hash:9].css",
+      filename: "css/[name].[hash:9].css",
       allChunks: true
     }),
     new webpack.ProvidePlugin({

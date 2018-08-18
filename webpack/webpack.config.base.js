@@ -10,8 +10,6 @@ const SSR_DIR = SOURCE_DIR + "/dist";
 const SERVER_DIR = SOURCE_DIR + "/server";
 const APP_DIR = SOURCE_DIR + "/src";
 
-const { PRODUCTION_ENV } = require("../config");
-
 const CSS_CONFIG_BASE = {
   fallback: "style-loader",
   use: [
@@ -48,7 +46,6 @@ const HTML_WEBPACK_OPTION_BASE = {
 };
 
 module.exports = {
-  PRODUCTION_ENV,
   DEV_DIR,
   PROD_DIR,
   SSR_DIR,

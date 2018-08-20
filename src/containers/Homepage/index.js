@@ -7,12 +7,20 @@ const Header = Loadable({
   loading: () => <div />
 });
 
+const About = Loadable({
+  loader: () => import("../../components/About"),
+  loading: () => <div />
+});
+
 class HomePage extends Component {
   render() {
     const { history } = this.props;
     return (
       <div className={styles.HomePage}>
         <Header />
+        <div className={styles.Contain}>
+          <About />
+        </div>
       </div>
     );
   }

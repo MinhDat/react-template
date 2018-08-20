@@ -8,7 +8,7 @@
     "start:prod": "NODE_ENV=production webpack-dev-server --config ./webpack/webpack.config.js",
     "build:dev": "npm run clear:dev && NODE_ENV=development webpack --config ./webpack/webpack.config.js -d --watch",
     "build:prod": "npm run clear:prod && NODE_ENV=production webpack --config ./webpack/webpack.config.js -p --watch",
-    "build:ssr": "npm run clear:ssr && NODE_ENV=production webpack --config ./webpack/webpack.ssr.js -p --watch",
+    "build:ssr": "npm run clear:ssr && NODE_ENV=production webpack --config ./webpack/webpack.config.ssr.js --watch",
     "clear:prod": "rimraf ./public/*",
     "clear:dev": "rimraf ./build/*",
     "clear:ssr": "rimraf ./dist/*",

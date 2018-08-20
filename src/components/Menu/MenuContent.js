@@ -1,25 +1,28 @@
 import React, { Component } from "react";
 import styles from "./styles.scss";
+import { Link } from "react-router-dom";
+
+const { SUB_DOMAIN } = require("../../../config");
 
 class MenuContent extends Component {
   render() {
     return (
       <div className={styles.MenuContent}>
-        <a
+        <Link
           className={`${styles.Item} ${styles.ItemHome}`}
-          href="/react-template/"
+          to={`${SUB_DOMAIN}/`}
         >
           Home
-        </a>
+        </Link>
         <a
           className={`${styles.Item} ${styles.ItemAboutMe}`}
-          href="/react-template/about-me"
+          href="https://minhdat.github.io/My-Website/members/1312120/1312120.html"
         >
           About me
         </a>
         <a
           className={`${styles.Item} ${styles.ItemProject}`}
-          href="/react-template/projects"
+          href="https://github.com/MinhDat?tab=repositories"
         >
           Projects
         </a>

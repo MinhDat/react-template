@@ -39,7 +39,7 @@ const CSS_CONFIG_BASE = {
 };
 
 const HTML_WEBPACK_OPTION_BASE = {
-  title: "Ha Minh Dat's curriculum vitae",
+  title: "Ha Minh Dat's information",
   hash: true, // Hash css/js bundle
   template: APP_DIR + "/index.html",
   favicon: APP_DIR + "/owl.ico"

@@ -16,7 +16,7 @@ class MenuContent extends Component {
         </Link>
         <a
           className={`${styles.Item} ${styles.ItemAboutMe}`}
-          href="https://minhdat.github.io/My-Website/members/1312120/1312120.html"
+          href="https://night-owl-squad.herokuapp.com/"
         >
           About me
         </a>

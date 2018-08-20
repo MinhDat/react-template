@@ -50,7 +50,7 @@ class Footer extends Component {
                 </ul>
               </div>
               <div className={styles.footerLicence}>
-                <p>Copyright © My Website 2018</p>
+                <p>Copyright © React Template 2018</p>
               </div>
             </div>
           </div>

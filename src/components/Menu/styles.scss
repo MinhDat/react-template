@@ -4,7 +4,7 @@
   display: block;
   height: 100%;
   display: inline-flex;
-
+  width: 90px;
   .Menu {
     .LargeScreen {
       position: relative;
@@ -105,6 +105,7 @@
     opacity: 0;
   }
   .Item {
+    width: 300px;
     position: relative;
     z-index: 999;
     display: block;

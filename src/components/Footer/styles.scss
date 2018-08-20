@@ -1,0 +1,26 @@
+.dathmFooter {
+  color: white;
+  background-color: #292929;
+  margin-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  .footerSocial {
+    text-align: center;
+    .socialLinks {
+      padding-right: 40px;
+      list-style: none;
+      li {
+        padding-right: 10px;
+        display: inline-block;
+        a {
+          color: white;
+          font-size: 15px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .footerLicence {
+    text-align: center;
+  }
+}

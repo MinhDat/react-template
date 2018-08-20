@@ -4,7 +4,7 @@ import styles from "./styles.scss";
 class About extends Component {
   render() {
     return (
-      <div>
+      <div className={styles.aboutContain}>
         <h3>About template</h3>
         <p>
           This website is builded on React client-side template, And it is in

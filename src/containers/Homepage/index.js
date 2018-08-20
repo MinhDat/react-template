@@ -12,6 +12,11 @@ const About = Loadable({
   loading: () => <div />
 });
 
+const Footer = Loadable({
+  loader: () => import("../../components/Footer"),
+  loading: () => <div />
+});
+
 class HomePage extends Component {
   render() {
     const { history } = this.props;
@@ -21,6 +26,7 @@ class HomePage extends Component {
         <div className={styles.Contain}>
           <About />
         </div>
+        <Footer />
       </div>
     );
   }
